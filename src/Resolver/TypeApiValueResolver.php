@@ -27,8 +27,8 @@ final class TypeApiValueResolver implements ValueResolverInterface
 
         foreach ($attrs as $attr) {
             $value = match ($attr::class) {
-                Param::class => $this->castValue($request->get($argument->getName()), $argument->getType()),
-                Query::class => $this->castValue($request->query->get($argument->getName()), $argument->getType()),
+                Param::class => $this->castValue($request->get($argument->getName())),
+                Query::class => $this->castValue($request->get($argument->getName())),
                 Body::class => (function (Request $request, ArgumentMetadata $argument): ?object {
                     $class = (string) $argument->getType();
                     if (!class_exists($class)) {
@@ -39,6 +39,7 @@ final class TypeApiValueResolver implements ValueResolverInterface
                 })($request, $argument),
                 default => [],
             };
+
 
             yield $value;
 
@@ -68,7 +69,7 @@ final class TypeApiValueResolver implements ValueResolverInterface
         );
     }
 
-    private function castValue(mixed $value, ?string $type = null): mixed
+    private function castValue(mixed $value): mixed
     {
         return match (\gettype($value)) {
             'integer' => (int) $value,

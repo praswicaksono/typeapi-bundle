@@ -56,7 +56,8 @@ final class TypeApiRouteCollector
 
         foreach ($operations->getAll() as $name => $operation) {
             $path = (string) preg_replace('/:(\w+)/', '{$1}', $operation->getPath());
-            [, $operationName] = explode('.', $name);
+            $operationName = explode('.', $name);
+            $operationName = end($operationName);
 
             $classReflector = new \ReflectionClass($class);
 
