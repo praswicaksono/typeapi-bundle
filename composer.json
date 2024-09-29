@@ -12,7 +12,7 @@
     },
     "scripts": {
         "cs-fix": "./vendor/bin/php-cs-fixer fix src --allow-risky=yes",
-        "cs": "./vendor/bin/php-cs-fixer check src --allow-risky=yes",
+        "cs": "./vendor/bin/php-cs-fixer check src --allow-risky=yes -vvv --diff",
         "phpstan": "./vendor/bin/phpstan"
     },
     "config": {

@@ -48,8 +48,6 @@ final class TypeApiRouteCollector
 
     /**
      * @param class-string $class
-     * @param \PSX\Api\SpecificationInterface $typeApiSpec
-     * @return \Symfony\Component\Routing\RouteCollection
      */
     private function convertSpecToRoute(string $class, SpecificationInterface $typeApiSpec): RouteCollection
     {

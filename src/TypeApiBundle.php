@@ -6,7 +6,6 @@ namespace Pras\TypeApiBundle;
 
 use Pras\TypeApiBundle\Attributes\TypeApi;
 use Pras\TypeApiBundle\DependencyInjection\Pass\TypeApiCompilerPass;
-use Reflector;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -33,7 +32,7 @@ class TypeApiBundle extends AbstractBundle
 
         $builder->registerAttributeForAutoconfiguration(
             TypeApi::class,
-            function (ChildDefinition $definition, TypeApi $attr, Reflector $reflectionn): void {
+            function (ChildDefinition $definition, TypeApi $attr, \Reflector $reflectionn): void {
                 $definition->addTag('typeapi.api.collection');
             },
         );

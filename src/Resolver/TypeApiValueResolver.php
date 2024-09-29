@@ -29,11 +29,14 @@ final class TypeApiValueResolver implements ValueResolverInterface
             $value = match ($attr::class) {
                 Param::class => $this->castValue($request->get($argument->getName()), $argument->getType()),
                 Query::class => $this->castValue($request->query->get($argument->getName()), $argument->getType()),
-                Body::class => $this->serializer->deserialize(
-                    $request->getContent(),
-                    (string) $argument->getType(),
-                    'json',
-                ),
+                Body::class => (function (Request $request, ArgumentMetadata $argument): ?object {
+                    $class = (string) $argument->getType();
+                    if (!class_exists($class)) {
+                        throw new \InvalidArgumentException(\sprintf('Class %s not found', $class));
+                    }
+
+                    return $this->deserializeJsonBody($request, $class);
+                })($request, $argument),
                 default => [],
             };
 
@@ -43,12 +46,34 @@ final class TypeApiValueResolver implements ValueResolverInterface
         }
     }
 
+    /**
+     * @template T
+     *
+     * @param class-string<T> $target
+     *
+     * @return T|null
+     */
+    private function deserializeJsonBody(Request $request, string $target)
+    {
+        $format = $request->getContentTypeFormat();
+
+        if ($format === null) {
+            return null;
+        }
+
+        return $this->serializer->deserialize(
+            $request->getContent(),
+            $target,
+            $format,
+        );
+    }
+
     private function castValue(mixed $value, ?string $type = null): mixed
     {
-        return match (gettype($value)) {
+        return match (\gettype($value)) {
             'integer' => (int) $value,
             'string' => (string) $value,
-            'double' => (double) $value,
+            'double' => (float) $value,
             'bool' => (bool) $value,
             default => $value,
         };
