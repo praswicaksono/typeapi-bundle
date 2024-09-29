@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\EventListener;
+namespace PRSW\TypeApiBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;

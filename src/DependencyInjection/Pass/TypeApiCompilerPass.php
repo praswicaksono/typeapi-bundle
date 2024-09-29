@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\DependencyInjection\Pass;
+namespace PRSW\TypeApiBundle\DependencyInjection\Pass;
 
-use Pras\TypeApiBundle\Router\TypeApiRouteCollector;
+use PRSW\TypeApiBundle\Router\TypeApiRouteCollector;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

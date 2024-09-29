@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\Router;
+namespace PRSW\TypeApiBundle\Router;
 
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Routing\RouteCollection;

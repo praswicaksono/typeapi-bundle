@@ -11,7 +11,7 @@ of the Composer documentation.
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require pras/typeapi-bundle
+$ composer require prsw/typeapi-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -22,7 +22,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require pras/typeapi-bundle
+$ composer require prsw/typeapi-bundle
 ```
 
 #### Step 2: Enable the Bundle
@@ -35,7 +35,7 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    Pras\TypeApiBundle\TypeApiBundle::class => ['all' => true],
+    PRSW\TypeApiBundle\TypeApiBundle::class => ['all' => true],
 ];
 ```
 
@@ -60,8 +60,8 @@ namespace App\Api;
 
 use App\Dto\Hello;
 use App\Dto\Payload;
-use Pras\TypeApiBundle\Attributes\Path;
-use Pras\TypeApiBundle\Attributes\TypeApi;
+use PRSW\TypeApiBundle\Attributes\Path;
+use PRSW\TypeApiBundle\Attributes\TypeApi;
 use PSX\Api\Attribute\Body;
 use PSX\Api\Attribute\Post;
 

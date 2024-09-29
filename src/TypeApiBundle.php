@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle;
+namespace PRSW\TypeApiBundle;
 
-use Pras\TypeApiBundle\Attributes\TypeApi;
-use Pras\TypeApiBundle\DependencyInjection\Pass\TypeApiCompilerPass;
+use PRSW\TypeApiBundle\Attributes\TypeApi;
+use PRSW\TypeApiBundle\DependencyInjection\Pass\TypeApiCompilerPass;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\Resolver;
+namespace PRSW\TypeApiBundle\Resolver;
 
 use PSX\Api\Attribute\Body;
 use PSX\Api\Attribute\Param;

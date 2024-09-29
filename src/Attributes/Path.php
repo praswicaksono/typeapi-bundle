@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\Attributes;
+namespace PRSW\TypeApiBundle\Attributes;
 
 use PSX\Api\Attribute\Path as BasePath;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Pras\TypeApiBundle\EventListener\SerializeTypeApiResponseListener;
-use Pras\TypeApiBundle\Resolver\TypeApiValueResolver;
-use Pras\TypeApiBundle\Router\TypeApiRouteLoader;
-use Pras\TypeApiBundle\Router\TypeApiRouteCollector;
+use PRSW\TypeApiBundle\EventListener\SerializeTypeApiResponseListener;
+use PRSW\TypeApiBundle\Resolver\TypeApiValueResolver;
+use PRSW\TypeApiBundle\Router\TypeApiRouteLoader;
+use PRSW\TypeApiBundle\Router\TypeApiRouteCollector;
 use PSX\Api\ApiManager;
 use PSX\Api\ApiManagerInterface;
 use PSX\Api\Generator\Spec\TypeAPI;

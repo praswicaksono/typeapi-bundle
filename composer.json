@@ -1,5 +1,5 @@
 {
-    "name": "pras/typeapi-bundle",
+    "name": "prsw/typeapi-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "description": "TypeApi Impelementation For Symfony",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Pras\\TypeApiBundle\\": "src/"
+            "PRSW\\TypeApiBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pras\\TypeApiBundle\\Tests\\": "tests/"
+            "PRSW\\TypeApiBundle\\Tests\\": "tests/"
         }
     },
     "require-dev": {

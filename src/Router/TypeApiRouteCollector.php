@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pras\TypeApiBundle\Router;
+namespace PRSW\TypeApiBundle\Router;
 
-use Pras\TypeApiBundle\Attributes\Path;
+use PRSW\TypeApiBundle\Attributes\Path;
 use PSX\Api\ApiManagerInterface;
 use PSX\Api\Specification;
 use PSX\Api\SpecificationInterface;
