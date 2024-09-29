@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Praswicaksono\\TypeApiBundle\\": "src/"
+            "Pras\\TypeApiBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Praswicaksono\\TypeApiBundle\\Tests\\": "tests/"
+            "Pras\\TypeApiBundle\\Tests\\": "tests/"
         }
     },
     "require-dev": {
