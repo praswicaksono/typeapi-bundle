@@ -35,6 +35,48 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    Pras\TypeapiBundle\TypeApiBundle::class => ['all' => true],
+    Pras\TypeApiBundle\TypeApiBundle::class => ['all' => true],
 ];
 ```
+
+## Usage
+
+Add TypeApi routes in `config/routes.yml`
+
+```yml
+typeapi:
+    resource:
+        path: .
+    type: typeapi
+```
+
+Now you can use TypeApi attribute to define your API definition in your class, you mush add `TypeApi` attribute in your class in order to autoload them in symfony routes.
+
+```php
+<?php
+declare(strict_types=1);
+
+namespace App\Api;
+
+use App\Dto\Hello;
+use App\Dto\Payload;
+use Pras\TypeApiBundle\Attributes\Path;
+use Pras\TypeApiBundle\Attributes\TypeApi;
+use PSX\Api\Attribute\Body;
+use PSX\Api\Attribute\Post;
+
+#[TypeApi]
+final class PostCollection
+{
+    #[Post]
+    #[Path('/hello')]
+    public function hello(
+        #[Body]
+        Payload $payload
+    ): Hello {
+        return Hello::create($payload->name, '', $payload->id);
+    }
+}
+```
+
+All is setup to verify route already registered or not you check via `./bin/console debug:router`
