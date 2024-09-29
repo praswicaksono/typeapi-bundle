@@ -60,17 +60,28 @@ final class TypeApiRouteCollector
 
             $classReflector = new \ReflectionClass($class);
 
-            $pathAttribute = $classReflector->getMethod($operationName)->getAttributes(Path::class)[0]->newInstance();
+            $extendedPathAttr = $classReflector->getMethod($operationName)->getAttributes(Path::class);
+
+            $additionalOptions = [];
+            if (\count($extendedPathAttr) != 0) {
+                $extendedPathAttr = $extendedPathAttr[0]->newInstance();
+                $additionalOptions = [
+                    'host' => $extendedPathAttr->host,
+                    'scheme' => $extendedPathAttr->scheme,
+                    'condition' => $extendedPathAttr->condition,
+                ];
+
+            }
 
             $route = new Route(
                 $path,
                 [
                     '_controller' => "{$class}::{$operationName}",
                 ],
-                host: $pathAttribute->host,
-                schemes: $pathAttribute->scheme ?? [],
+                host: $additionalOptions['host'] ?? null,
+                schemes: $additionalOptions['scheme'] ?? [],
                 methods: [$operation->getMethod()],
-                condition: $pathAttribute->condition,
+                condition: $additionalOptions['condition'] ?? null,
             );
             $routes->add($name, $route);
         }
